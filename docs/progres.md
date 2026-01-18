@@ -3,3 +3,7 @@
 ### 17 Januari 2026
 1. Aktivitas: Mengerjakan bagian A nomor 1, 2, dan 3 kecuali 2e
 2. Kendala: Ketika bagian menulis fitur utama Mission Planner, agak sulit untuk menebak jawaban apa yang diekspektasikan.
+
+### 18 Januari 2026
+1. Aktivitas: Mengerjakan sebagian bagian A nomor 5a dan 5b
+2. Kendala: Sulit menemukan jurnal yang secara jelas menjelaskan definisi dari dasar, kebanyakan sudah langsung menjalankan penelitian tanpa definisi (atau definisi supertersirat).
