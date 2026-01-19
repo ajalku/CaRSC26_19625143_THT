@@ -53,7 +53,7 @@ b. Merujuk pada dokumentasi [Ardupilot (2024)](https://ardupilot.org/planner/doc
 
  c. Misi pemetaan sederhana persegi panjang 80x100  
   [misi-pemetaan-sederhana-80x100.waypoints](../lampiran/misi-pemetaan-sederhana-80x100.waypoints)
-  ![Tangkapan layar misi sederhana (untuk _error prevention_)](../lampiran/tangkapan-layar-misi-pemetaan-sederhana.png)
+  ![Tangkapan layar misi sederhana (untuk error prevention)](../lampiran/tangkapan-layar-misi-pemetaan-sederhana.png)
 
 #### 4. Development Environment
 
@@ -80,12 +80,39 @@ Dalam keadaan ideal ketika angin tidak bertiup (_windspeed_ = 0), besar _airspee
 
 Menurut [Lerus Training (2024)](https://www.lerus.com/articles/hdop-horizontal-dilution-of-precision-in-gps-and-dgps-systems.html), HDOP adalah indikator utama pengukuran keberhasilan yang digunakan untuk menilai akurasi sistem GPS atau DGPS. HDOP akan merefleksikan dampak geometris satelit terhadap akurasi posisi horizontal GPS _receiver_. Makin kecil HDOP, makin baik pula akurasinya. HDOP yang rendah terjadi ketika satelit terdistribusi dengan rata di langit sehingga kekuatan triangulasi (pengukuran) lebih kuat, sementara HDOP yang tinggi terjadi ketika satelit berkumpul di satu area sehingga akurasi posisi menjadi lebih lemah. HDOP 1-2 menunjukkan akurasi yang sangat baik sehingga cocok untuk operasi kritis, 2-5 menunjukkan akurasi yang cukup baik sehingga cukup untuk kebanyakan tugas di sekitar pantai, angka di atas 5 menunjukkan akurasi yang buruk sehingga membutuhkan sistem alternatif. Akurasi GPS akan berguna untuk menentukan apakah tempat tersebut cukup layak untuk menerbangkan UAV atau tidak.
 
-Sementara itu, berdasarkan jurnal dari [Khan dkk. (2021)](https://scispace.com/pdf/rssi-controlled-long-range-communication-in-secured-iot-2kn3bqmmzw.pdf), RSSI (_Received Signal Strength Identifier_) atau biasa juga dikenal sebagai pengukuran kekuatan sinyal yang diterima adalah teknik untuk mengalkulasi jarak antara dua UAV atau _node_ nirkabel. Kekuatan sinyal akan bervariasi bergantung pada perubahan jarak _node_. RSSI dapat digunakan untuk proses lokalisasi (menghitung jarak antar-_node_).
+Sementara itu, berdasarkan jurnal dari [Khan et al. (2021)](https://scispace.com/pdf/rssi-controlled-long-range-communication-in-secured-iot-2kn3bqmmzw.pdf), RSSI (_Received Signal Strength Identifier_) atau biasa juga dikenal sebagai pengukuran kekuatan sinyal yang diterima adalah teknik untuk mengalkulasi jarak antara dua UAV atau _node_ nirkabel. Kekuatan sinyal akan bervariasi bergantung pada perubahan jarak _node_. RSSI dapat digunakan untuk proses lokalisasi (menghitung jarak antar-_node_).
 
 c. 
 
+d. Publikasi ilmiah: https://doi.org/10.3390/en15010217
+ Publikasi ilmiah ini terbagi menjadi enam bagian, yakni pengenalan, agrikultur presisi, tipe-tipe UAV, peran UAV dalam manajemen hama presisi, manfaat ekonomi dari teknologi UAV, serta kesimpulan.
 
+#### 6. Algoritma
+a. 
 
+Sementara itu, menurut [Stentz (1994)](https://web.mit.edu/16.412j/www/html/papers/original_dstar_icra94.pdf), nama algoritma D* dipilih karena mirip dengan A*, tetapi D* cenderung dinamis; _arc cost parameters_ (hambatan) dapat berubah selama proses penyelesaian masalah. Apabila pergerakan robot terhubung dengan benar dengan algoritma, D* menghasilkan lintasan yang optimal. Tujuan _path planner_ adalah mencapai lokasi yang dituju dengan menghindari alangan serta meminimalisasi "pengeluaran" metrik (misalnya panjang lajur). D* menggunakan _backpointer_ untuk merepresentasikan lajur-lajur yang memungkinkan untuk mencapai tujuan. D* membuat _list_ OPEN yang digunakan untuk menyebarkan informasi terkait perubahan hambatan lajur dan menghitung hambatan setiap lajur di tahap tertentu. Setiap kemungkinan lajur akan disebut NEW jika belum pernah ditaruh di _list_ OPEN, OPEN jika berada di _list_ OPEN, dan CLOSED jika sudah tidak berada di _list_ OPEN. Setiap kali terdapat perubahan, D* mendeteksinya dan membagi setiap anggotanya menjadi dua tipe: RAISE dan LOWER. RAISE untuk anggota yang mengalami kenaikan "pengeluaran", serta LOWER untuk anggota yang mengalami penurunan "pengeluaran". Ini memungkinkan D* untuk terus memperbarui anggota dalam _list_ OPEN. Setelah diperbarui, perubahan tersebut akan dilanjutkan (untuk diperiksa) ke lajur terdekat dan seterusnya.
+
+Berikut ini contoh penggunaan algoritma D*
+* Mengoptimalisasi navigasi swatantra UAV [(Suanpang & Jamjuntr, 2024)](https://doi.org/10.3390/su16177867) 
+* Mengoptimalisasi pemilihan lajur UAV dalam lingkungan yang berbeda-beda [(Wang, Wang, & Yang, 2024)](https://doi.org/10.1117/12.3027181)
+* _Path planning_ robot dengan dua sambungan lengan dalam lingkungan dinamis [(Raheem & Hameed, 2019)](https://doi.org/10.22153/kej.2019.01.004)
+
+b. Menurut [Chen (2024)](https://doi.org/10.54097/6q4xxg69), PID (_proportional-integral-derivatives_) adalah mekanisme kontrol timbal balik yang didasarkan pada tiga komponen esensial tersebut (proporsional, integral, derivatif). Teknik kontrol ini esensial untuk menyelesaikan permasalahan dinamis dalam konteks sistem _engineering_ karena simplisitas, fleksibilitas, dan efektivitasnya. Kontrol PID merupakan teknik automasi industrial yang lumrah digunakan dalam proses manufaktur, produksi, dan aplikasi industri lainnya. Teknik kontrol PID paling sesuai digunakan ketika terdapat kekurangan pemahaman komprehensif tentang sistem dan objek yang akan digunakan atau ketika parameterisasi akurat tidak dapat diperolah dengan cara yang sistematis. Pengontrol PID merupakan pengontrol bertipe linear yang menghasilkan keluaran kontrol berupa defleksi dasar antara himpunan nilai dan hasil praktis. Hal yang membentuk sistem kontrol PID adalah kombinasi linear antara komponen proporsional, integral, dan derivatif. Representasi matematis pengontrol PID adalah sebagai berikut.
+
+$$
+  u_{(t)} = K_p \times e_{(t)} + K_i \times \int_{0}^{t} e_{(t)} dt + K_d \times \frac{de_{(t)}}{dt}
+$$
+
+dengan $u(t)$ sebagai keluaran pengontrol, $e(t)$ sebagai kesalahan saat ini, dan $K_p$, $K_i$, dan $K_d$ secara berurutan adalah setelan parameter proporsional, integral, dan derivatif. 
+
+Aplikasi kontrol PID dalam berbagai bidang adalah sebagai berikut.
+* Industri manufaktur: Aplikasi dalam suhu, aliran, tekanan, kelajuan, tingkat cairan, kualitas, pencampuran gas, dan posisi mekanikal.
+* Industri kimia: Secara tepat meregulasi suhu, tekanan, dan aliran. Optimisasi ini dapat meningkatkan efisiensi reaksi, meningkatkan kualitas produk, serta menjaga sistem tetap stabil dan berfungsi.
+* Sistem listrik: Menjaga stabilitas keluaran voltase, meregulasi frekuensi untuk menjaga frekuensi sistem tetap berada dalam rentang yang benar, meningkatkan efisiensi sistem, serta menjaga stabilitas sistem dalam berbagai variasi beban [(Chen, 2024)](https://doi.org/10.54097/6q4xxg69).
+
+c. Berdasarkan tulisan [Welch dan Bishop (2002)](https://www.mit.edu/course/16/16.070/www/project/PF_kalman_intro.pdf), Filter Kalman adalah himpunan persamaan matematika yang menyediakan solusi komputasional (rekursif) yang efisien dari metode kuadrat terkecil. Filter ini sangat berguna dalam beberapa aspek karena dapat mengestimasi keadaan pada masa lalu, kini, dan masa depan. Bahkan, filter Kaman dapat digunakan meskipun aspek alamiah sebuah sistem tidak diketahui secara pasti. 
+
+###
 ---
 
 ### Referensi
@@ -93,5 +120,4 @@ c.
 * [Ardupilot Documentation](https://ardupilot.org/planner/docs/mission-planner-features.html)
 
 ### Daftar Pustaka
-Lee, C., Kim, S. & Chu, B. A Survey: Flight Mechanism and Mechanical Structure of the UAV. Int. J. Precis. Eng. Manuf. 22, 719–743 (2021). https://doi.org/10.1007/s12541-021-00489-y
 

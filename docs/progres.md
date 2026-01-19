@@ -7,3 +7,7 @@
 ### 18 Januari 2026
 1. Aktivitas: Mengerjakan sebagian bagian A nomor 5a dan 5b
 2. Kendala: Sulit menemukan jurnal yang secara jelas menjelaskan definisi dari dasar, kebanyakan sudah langsung menjalankan penelitian tanpa definisi (atau definisi supertersirat).
+
+### 19 Januari 2026
+1. Aktivitas: Mengerjakan bagian A nomor 6a, 6b, dan 6c
+2. Kendala: 
