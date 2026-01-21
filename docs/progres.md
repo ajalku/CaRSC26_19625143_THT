@@ -17,4 +17,4 @@
 3. Penggunaan AI: Bertanya mengapa dapat terjadi error dalam instalasi ROS2 (setelah mencari ke _platform_ seperti Reddit dan Ask Ubuntu dan tidak menemukan jawaban benar), tetapi AI tidak membantu sehingga berakhir bertanya kepada narahubung THT RSC (barulah ditemukan masalahnya)
 
 ### 21 Januari 2026
-1. Aktivitas: Menyelesaikan bagian A nomor 4, 5c, dan 5d
+1. Aktivitas: Menyelesaikan bagian A nomor 4, 5c, 5d, 6a, 6c; melengkapi referensi

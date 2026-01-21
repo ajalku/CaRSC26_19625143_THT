@@ -151,16 +151,18 @@ d. Publikasi ilmiah: [Unmanned Aerial Vehicles (UAV) in Precision Agriculture: A
    * Mengurangi kemiskinan dan meningkatkan kualitas hidup
 
 #### 6. Algoritma
-a. 
+a. Berdasarkan [Red Blob Games (2014)](https://www.redblobgames.com/pathfinding/a-star/introduction.html), A* merrupakan salah satu algoritma _pathfinding_ 'pencari jalan' yang menemukan jalan yang terbentuk oleh grafik _node_ dan _edge_ untuk menuju suatu destinasi. Perbedaan algoritma A* dari algoritma pendahulu seperti Breadth First Search dan Djikstra adalah pengombinasian antara jarak sebenarnya dengan jarak yang diperkirakan; kombinasi antara Greedy Best First Search dan Djikstra. Dalam Breadth First Search _pathfinding_, seluruh jarak antar-_nodes_ dicari dan disimpan, kemudian jalan yang telah dilalui dapat direkonstruksi sehingga ditemukan jalan terpendek. Dalam Djikstra, jarak antar-_nodes_ hanya akan disimpan apabila jalan tersebut lebih baik daripada jalan terbaik sebelumnya sehingga terbentuk "antrean prioritas". Dengan demikian, ditemukan jalan terpendek dengan mempertimbangkan "berapa pergerakan yang dibutuhkan untuk mencapai jalan" ketika proses pencarian. Terdapat pula Greedy Best First Search yang menggunakan perkiraan "jalan mana yang sekiranya paling dekat dengan tujuan". Perkiraan tersebut tidak selalu akurat, terutama apabila ada penghalang seperti dinding. A* mengombinasikan keduanya dengan menghitung jarak terbaik sebelumnya ditambah dengan jarak yang sekiranya terdekat. Dengan demikian, tercipta proses pencarian jalan yang lebih efisien. A* digunakan untuk menemukan jalan menuju satu lokasi tertentu, berbeda dengan Breadth First Search dan Djikstra yang lebih baik dalam penemuan jalan untuk pergi ke semua lokasi.
 
 Sementara itu, menurut [Stentz (1994)](https://web.mit.edu/16.412j/www/html/papers/original_dstar_icra94.pdf), nama algoritma D* dipilih karena mirip dengan A*, tetapi D* cenderung dinamis; _arc cost parameters_ (hambatan) dapat berubah selama proses penyelesaian masalah. Apabila pergerakan robot terhubung dengan benar dengan algoritma, D* menghasilkan lintasan yang optimal. Tujuan _path planner_ adalah mencapai lokasi yang dituju dengan menghindari alangan serta meminimalisasi "pengeluaran" metrik (misalnya panjang lajur). D* menggunakan _backpointer_ untuk merepresentasikan lajur-lajur yang memungkinkan untuk mencapai tujuan. D* membuat _list_ OPEN yang digunakan untuk menyebarkan informasi terkait perubahan hambatan lajur dan menghitung hambatan setiap lajur di tahap tertentu. Setiap kemungkinan lajur akan disebut NEW jika belum pernah ditaruh di _list_ OPEN, OPEN jika berada di _list_ OPEN, dan CLOSED jika sudah tidak berada di _list_ OPEN. Setiap kali terdapat perubahan, D* mendeteksinya dan membagi setiap anggotanya menjadi dua tipe: RAISE dan LOWER. RAISE untuk anggota yang mengalami kenaikan "pengeluaran", serta LOWER untuk anggota yang mengalami penurunan "pengeluaran". Ini memungkinkan D* untuk terus memperbarui anggota dalam _list_ OPEN. Setelah diperbarui, perubahan tersebut akan dilanjutkan (untuk diperiksa) ke lajur terdekat dan seterusnya.
+
+Dengan demikian, D* cocok digunakan untuk _path planning_ bagi lajur dinamis, dalam artian keadaan lajur kerap kali berganti.
 
 Berikut ini contoh penggunaan algoritma D*
 * Mengoptimalisasi navigasi swatantra UAV [(Suanpang & Jamjuntr, 2024)](https://doi.org/10.3390/su16177867) 
 * Mengoptimalisasi pemilihan lajur UAV dalam lingkungan yang berbeda-beda [(Wang, Wang, & Yang, 2024)](https://doi.org/10.1117/12.3027181)
 * _Path planning_ robot dengan dua sambungan lengan dalam lingkungan dinamis [(Raheem & Hameed, 2019)](https://doi.org/10.22153/kej.2019.01.004)
 
-b. Menurut [Chen (2024)](https://doi.org/10.54097/6q4xxg69), PID (_proportional-integral-derivatives_) adalah mekanisme kontrol timbal balik yang didasarkan pada tiga komponen esensial tersebut (proporsional, integral, derivatif). Teknik kontrol ini esensial untuk menyelesaikan permasalahan dinamis dalam konteks sistem _engineering_ karena simplisitas, fleksibilitas, dan efektivitasnya. Kontrol PID merupakan teknik automasi industrial yang lumrah digunakan dalam proses manufaktur, produksi, dan aplikasi industri lainnya. Teknik kontrol PID paling sesuai digunakan ketika terdapat kekurangan pemahaman komprehensif tentang sistem dan objek yang akan digunakan atau ketika parameterisasi akurat tidak dapat diperolah dengan cara yang sistematis. Pengontrol PID merupakan pengontrol bertipe linear yang menghasilkan keluaran kontrol berupa defleksi dasar antara himpunan nilai dan hasil praktis. Hal yang membentuk sistem kontrol PID adalah kombinasi linear antara komponen proporsional, integral, dan derivatif. Representasi matematis pengontrol PID adalah sebagai berikut.
+b. Menurut [Chen (2024)](https://doi.org/10.54097/6q4xxg69), PID (_proportional-integral-derivatives_) adalah mekanisme kontrol timbal balik yang didasarkan pada tiga komponen esensial tersebut (proporsional, integral, derivatif). Teknik kontrol ini esensial untuk menyelesaikan permasalahan dinamis dalam konteks sistem _engineering_ karena simplisitas, fleksibilitas, dan efektivitasnya. Kontrol PID merupakan teknik automasi industrial yang lumrah digunakan dalam proses manufaktur, produksi, dan aplikasi industri lainnya. Teknik kontrol PID paling sesuai digunakan ketika terdapat kekurangan pemahaman komprehensif tentang sistem dan objek yang akan digunakan atau ketika parameterisasi akurat tidak dapat diperolah dengan cara yang sistematis. Pengontrol PID merupakan pengontrol bertipe linear yang menghasilkan keluaran pengontrol berupa penyimpangan antara himpunan nilai dan hasil praktis. Hal yang membentuk sistem kontrol PID adalah kombinasi linear antara komponen proporsional, integral, dan derivatif. Representasi matematis pengontrol PID adalah sebagai berikut.
 
 $$
   u_{(t)} = K_p \times e_{(t)} + K_i \times \int_{0}^{t} e_{(t)} dt + K_d \times \frac{de_{(t)}}{dt}
@@ -173,7 +175,41 @@ Aplikasi kontrol PID dalam berbagai bidang adalah sebagai berikut.
 * Industri kimia: Secara tepat meregulasi suhu, tekanan, dan aliran. Optimisasi ini dapat meningkatkan efisiensi reaksi, meningkatkan kualitas produk, serta menjaga sistem tetap stabil dan berfungsi.
 * Sistem listrik: Menjaga stabilitas keluaran voltase, meregulasi frekuensi untuk menjaga frekuensi sistem tetap berada dalam rentang yang benar, meningkatkan efisiensi sistem, serta menjaga stabilitas sistem dalam berbagai variasi beban [(Chen, 2024)](https://doi.org/10.54097/6q4xxg69).
 
-c. Berdasarkan tulisan [Welch dan Bishop (2002)](https://www.mit.edu/course/16/16.070/www/project/PF_kalman_intro.pdf), Filter Kalman adalah himpunan persamaan matematika yang menyediakan solusi komputasional (rekursif) yang efisien dari metode kuadrat terkecil. Filter ini sangat berguna dalam beberapa aspek karena dapat mengestimasi keadaan pada masa lalu, kini, dan masa depan. Bahkan, filter Kaman dapat digunakan meskipun aspek alamiah sebuah sistem tidak diketahui secara pasti. 
+c. Berdasarkan tulisan [Welch dan Bishop (2002)](https://www.mit.edu/course/16/16.070/www/project/PF_kalman_intro.pdf), Filter Kalman adalah himpunan persamaan matematika yang menyediakan solusi komputasional (rekursif) yang efisien dari metode kuadrat terkecil. Filter ini sangat berguna dalam beberapa aspek karena dapat memperkirakan keadaan pada masa lalu, kini, dan masa depan. Bahkan, filter Kaman dapat digunakan ketika aspek alamiah sebuah sistem tidak diketahui secara pasti.
+
+Filter ini menyampaikan masalah umum dengan cara mencoba mengukur keadaan $x \in \mathbb{R}^n$ dalam sebuah _discrete-time controlled system_ yang mengacu pada LSDE (_linear stochastic difference equation_).
+
+$$
+x_k = Ax_{k-1} + Bu_k + w_{k-1}
+$$
+
+dengan pengukuran $z \in \mathbb{R}^m$, yakni
+$$
+z_k = Hx_k + v_k
+$$
+
+Variabel $w_k$ merepresentasikan proses gangguan dan $v_k$ menunjukkan pengukuran gangguan. Keduanya diasumsikan saling independen, murni, dan dengan distribusi probabilitas yang normal.
+
+$$
+p(w) ~ N(0,Q)
+$$
+$$
+p(v) ~ N(0,R)
+$$
+
+Praktisnya, matriks Q (kovarian proses gangguan) dan R (kovarian pengukuran gangguan) dapat berubah sepanjang proses perhitungan, tetapi dalam hal ini, keduanya diasumsikan konstan.
+
+Secara umum, Kalman filter mengestimasi sebuah keadaan proses dalam waktu tertentu dan memperoleh timbal balik dalam bentuk pengukuran yang _noisy_ 'tidak keruan'. Dengan demikian, persamaan-persamaan filter Kalman terbagi menjadi dua kelompok: persamaan "pembaruan waktu" dan persamaan "pembaruan pengukuran". Persamaan pembaruan waktu disebut dengan persamaan _predictor_, sementara persamaan pembaruan pengukuran disebut dengan persamaan _corrector_. Siklus filter Karman adalah sebagai berikut.
+
+![Siklus filter Kalman](../lampiran/predictor-corrector-filter-kalman.png)
+
+Penggunaan filter Kalman adalah dalam bidang robotik, kecerdasan buatan, serta sistem kontrol [(Ramachandran, 2024)](https://www.researchgate.net/publication/384762080_Kalman_Filters_and_Beyond_A_Comprehensive_Review_of_State_Estimation_Techniques_in_Robotics_Artificial_Intelligence_and_Complex_Dynamic_Systems)
+
+Sementara itu, perpanjangan filter Kalman (_extended Kalman filter_) digunakan ketika proses dan/atau hubungan pengukuran dengan proses tidak linear. Mean terkini dan kovarian dapat dilinearisasi dengan filter ini. Dengan menggunakan deret Taylor, linearisasi dapat diperoleh dengan turunan parsial dari fungsi proses dan pengukuran. Jadi, secara umum, perpanjangan filter Kalman memiliki prosedur yang mirip dengan filter Kalman, tetapi ditambah dengan proses linearisasi di awal.
+
+Perpanjangan filter Kalman juga memiliki siklus yang meliputi persamaan pembaruan waktu dan persamaan pembaruan pengukuran. Berikut adalah siklus perpanjangan filter Karman.
+
+![Siklus perpanjangan filter Kalman](../lampiran/predictor-corrector-extended-filter-kalman.png)
 
 ###
 ---
@@ -181,6 +217,21 @@ c. Berdasarkan tulisan [Welch dan Bishop (2002)](https://www.mit.edu/course/16/1
 ### Referensi
 * [Git Documentation](https://git-scm.com/docs/git#_git_commands)
 * [Ardupilot Documentation](https://ardupilot.org/planner/docs/mission-planner-features.html)
-
-### Daftar Pustaka
-
+* [Comparative Analysis of Fixed-Wing, Rotary-Wing and Hybrid Mini Unmanned Aircraft Systems (UAS) from the Applications Perspective](https://doi.org/10.13111/2066-8201.2022.14.1.12)
+* [A Survey: Flight Mechanism and Mechanical Structure of the UAV](https://doi.org/10.1007/s12541-021-00489-y)
+* [Yaw, Pitch and Roll controller design for fixed-wing UAV under uncertainty and perturbed condition](https://www.academia.edu/21293217/Yaw_Pitch_and_Roll_controller_design_for_fixed_wing_UAV_under_uncertainty_and_perturbed_condition)
+* [Deep Reinforcement Learning Based Unmanned Aerial Vehicle (UAV) Control Using 3D Hand Gestures](https://www.researchgate.net/publication/357930432_Deep_Reinforcement_Learning_Based_Unmanned_Aerial_Vehicle_UAV_Control_Using_3D_Hand_Gestures)
+* [Relative Velocities - Ground Reference](https://www.grc.nasa.gov/www/k-12/airplane/move.html)
+* [HDOP: Horizontal Dilution of Precision in GPS and DGPS Systems](https://www.lerus.com/articles/hdop-horizontal-dilution-of-precision-in-gps-and-dgps-systems.html)
+* [RSSI-Controlled Long-Range Communication in Secured
+IoT-Enabled Unmanned Aerial Vehicles](https://scispace.com/pdf/rssi-controlled-long-range-communication-in-secured-iot-2kn3bqmmzw.pdf)
+* [UAV Components and Ecosystem](https://doi.org/10.1007/978-3-031-93511-4_2)
+* [What is lidar?](https://oceanservice.noaa.gov/facts/lidar.html)
+* [Unmanned Aerial Vehicles (UAV) in Precision Agriculture: Applications and Challenge](https://doi.org/10.3390/en15010217)
+* [Introduction to the A* Algorithm](https://www.redblobgames.com/pathfinding/a-star/introduction.html)
+* [Optimal and Efficient Path Planning for Partially-Known Environments](https://web.mit.edu/16.412j/www/html/papers/original_dstar_icra94.pdf)
+* [Optimizing Autonomous UAV Navigation with D* Algorithm for Sustainable Development](https://doi.org/10.3390/su16177867)
+* [Using D* algorithm to optimize the path selection of UAV in different environments](https://doi.org/10.1117/12.3027181)
+* [Heuristic D* Algorithm Based on Particle Swarm Optimization for Path Planning of Two-Link Robot Arm in Dynamic Environment](https://doi.org/10.22153/kej.2019.01.004)
+* [A Comprehensive Analysis of PID Control Applications in Automation Systems: Current Trends and Future Directions](https://doi.org/10.54097/6q4xxg69)
+* [An Introduction to the Kalman Filter](https://www.mit.edu/course/16/16.070/www/project/PF_kalman_intro.pdf)
