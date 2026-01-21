@@ -10,4 +10,11 @@
 
 ### 19 Januari 2026
 1. Aktivitas: Mengerjakan bagian A nomor 6a, 6b, dan 6c
-2. Kendala: 
+
+### 20 Januari 2026
+1. Aktivitas: Mencoba mengerjakan bagian A nomor 4
+2. Kendala: Salah menginstall versi Ubuntu (malah install versi 25.10 hehe) sehingga mengulangi proses _dual boot_ (ROS2 tidak didukung Ubuntu versi baru)
+3. Penggunaan AI: Bertanya mengapa dapat terjadi error dalam instalasi ROS2 (setelah mencari ke _platform_ seperti Reddit dan Ask Ubuntu dan tidak menemukan jawaban benar), tetapi AI tidak membantu sehingga berakhir bertanya kepada narahubung THT RSC (barulah ditemukan masalahnya)
+
+### 21 Januari 2026
+1. Aktivitas: Menyelesaikan bagian A nomor 4, 5c, dan 5d

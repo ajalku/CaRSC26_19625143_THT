@@ -56,7 +56,17 @@ b. Merujuk pada dokumentasi [Ardupilot (2024)](https://ardupilot.org/planner/doc
   ![Tangkapan layar misi sederhana (untuk error prevention)](../lampiran/tangkapan-layar-misi-pemetaan-sederhana.png)
 
 #### 4. Development Environment
+Tangkapan Layar _Dualboot_ Ubuntu
+![tangkapan layar ubuntu dualboot](../lampiran/tangkapan-layar-ubuntu-dualboot.png)
 
+a. Instalasi <code>python3</code>, <code>python3-pip</code>, <code>python3-venv</code>, <code>uvicorn</code>, dan <code>build-essential</code>.
+
+![python3 & python3-pip](../lampiran/tangkapan-layar-python3-dan-python3-pip.png)
+![python3-venv](../lampiran/tangkapan-layar-python3-venv.png)
+![uvicorn & build-essential](../lampiran/tangkapan-layar-uvicorn-dan-build-essential.png)
+
+b. Sistem Talker-Listener Sederhana
+![Talker-Listener Sederhana](../lampiran/tangkapan-layar-talker-listener.png)
 
 #### 5. Dasar-Dasar UAV
 a. [Menurut P S dan Jeyan (2022)](https://www.researchgate.net/publication/359081357_Comparative_Analysis_of_Fixed-Wing_Rotary-Wing_and_Hybrid_Mini_Unmanned_Aircraft_Systems_UAS_from_the_Applications_Perspective), berikut ini perbedaan tiga klasifikasi UAV berdasarkan cara terbang.
@@ -67,7 +77,7 @@ a. [Menurut P S dan Jeyan (2022)](https://www.researchgate.net/publication/35908
  * **_Hybrid-Wing Based UAV_.** UAV jenis ini membentuk gaya angkat dengan mengombinasikan _fixed wing_ dan _rotating wing_. _Hybrid-wing_ mengombinasikan keunggulan dua jenis penerbangan. Contohnya, UAV jenis ini dapat melakukan lepas landas dan mendarat secara vertikal (VTOL) dan mempertahankan ketinggian di udara dengan rotor sekaligus terbang dengan kecepatan tinggi dan menempuh perjalanan jarak jauh dengan membentuk gaya angkat dengan _fixed wing_ [(Lee, Kim, & Chu, 2021)](https://doi.org/10.1007/s12541-021-00489-y).
  ![Gambar Penerbangan Hybrid](../lampiran/gambar-penerbangan-hybrid.png)
 
-b. Menurut [Desa (2014)](https://www.academia.edu/21293217/Yaw_Pitch_and_Roll_controller_design_for_fixed_wing_UAV_under_uncertainty_and_perturbed_condition), _pitch angle_ ($\theta$) adalah sumbu yang melewati pesawat dari ujung sayap sampai ujung sayap lainnya. Pergerakan yang memanjang di sekitar sumbu tersebut disebut _pitch_. _Pitch angle_ digunakan untuk mengubah arah vertikal UAV _fixed-wing_ yang dapat dikontrol dengan pergerakan elevator (dalam kata lain, apakah kerucut hidung pesawat sedang menghadap ke atas atau bawah). Sementara itu, _roll angle_ adalah sumbu yang melewati pesawat dari ujung kerucut hidung pesawat hingga ekor pesawat. Pergerakan yang melintang sepanjang sumbu tersebut disebut dengan pergerakan _roll_. Gerakan memutar tersebut disebabkan oleh pembelokan aileron pesawat. Terakhir, _yaw angle_ adalah sumbu yang menembus ruang antara pesawat dari atas sampai bawah. Pergerakan vertikal sepanjang sumbu tersebut disebut dengan _yaw_.
+b. Menurut [Desa (2014)](https://www.academia.edu/21293217/Yaw_Pitch_and_Roll_controller_design_for_fixed_wing_UAV_under_uncertainty_and_perturbed_condition), _pitch angle_ ($\theta$) adalah sumbu yang melewati pesawat dari ujung sayap sampai ujung sayap lainnya. Pergerakan yang memanjang di sekitar sumbu tersebut disebut _pitch_. _Pitch angle_ digunakan untuk mengubah arah vertikal UAV _fixed-wing_ yang dapat dikontrol dengan pergerakan elevator (dalam kata lain, apakah kerucut hidung pesawat sedang menghadap ke atas atau bawah). Sementara itu, _roll angle_ adalah sumbu yang melewati pesawat dari ujung kerucut hidung pesawat hingga ekor pesawat. Pergerakan yang melintang sepanjang sumbu tersebut disebut dengan pergerakan _roll_. Gerakan memutar tersebut disebabkan oleh pembelokan aileron pesawat. Terakhir, _yaw angle_ adalah sumbu yang menembus ruang antara pesawat dari atas sampai bawah. Pergerakan memutar dengan sumbu rotasi sumbu tersebut disebut _yaw_.
 
 ![Ilustrasi Sumbu Pitch, Roll, dan Yaw](../lampiran/UAV-attributes-Roll-Pitch-Yaw-with-coordinate-description.png)  
 Sumber gambar: https://www.researchgate.net/publication/357930432_Deep_Reinforcement_Learning_Based_Unmanned_Aerial_Vehicle_UAV_Control_Using_3D_Hand_Gestures
@@ -82,10 +92,63 @@ Menurut [Lerus Training (2024)](https://www.lerus.com/articles/hdop-horizontal-d
 
 Sementara itu, berdasarkan jurnal dari [Khan et al. (2021)](https://scispace.com/pdf/rssi-controlled-long-range-communication-in-secured-iot-2kn3bqmmzw.pdf), RSSI (_Received Signal Strength Identifier_) atau biasa juga dikenal sebagai pengukuran kekuatan sinyal yang diterima adalah teknik untuk mengalkulasi jarak antara dua UAV atau _node_ nirkabel. Kekuatan sinyal akan bervariasi bergantung pada perubahan jarak _node_. RSSI dapat digunakan untuk proses lokalisasi (menghitung jarak antar-_node_).
 
-c. 
+c. Menurut [Studiawan dan Choo (2025)](https://doi.org/10.1007/978-3-031-93511-4_2), komponen-komponen UAV adalah sebagai berikut.
 
-d. Publikasi ilmiah: https://doi.org/10.3390/en15010217
- Publikasi ilmiah ini terbagi menjadi enam bagian, yakni pengenalan, agrikultur presisi, tipe-tipe UAV, peran UAV dalam manajemen hama presisi, manfaat ekonomi dari teknologi UAV, serta kesimpulan.
+ * **Kerangka Pesawat (_Airframe_)** yang didesain untuk mendukung komponen lainnya adalah rangka struktural sebuah UAV. Beratnya harus ringan, tetapi kuat menahan tekanan ketika penerbangan berlangsung. Umumnya, kerangka pesawat dibuat dengan aluminium, serat karbon, dan material-material campuran. Pertimbangan desain UAV adalah efisiensi aerodinamika dan ketahanan. Contohnya, campuran serat karbon sering digunakan karena kuat dan ringan sekaligus serta dapat menahan faktor lingkungan.
+
+ * **Sistem Propulsi** mencakup motor, baling-baling, dan baterai; UAV dapat terbang dengan daya tolak yang dibentuk oleh komponen-komponen ini. Tipe dan konfigurasinya akan bergantung kepada desain dan tujuan dibuatnya UAV. Riset menyatakan bahwa apabila desain-desain komponen ini optimal, performa dan ketahanan uji UAV akan meningkat.
+
+ * **Sistem Kontrol** adalah "otak" dari sebuah UAV; meliputi pengontrol penerbangan, modul GPS, dan sensor-sensor lainnya. Sistem kontrol memastikan UAV tetap stabil, menavigasi dengan akurat, dan merespons kepada perintah dari operator atau algoritma kontrol otonom. Pengontrol penerbangan yang _open-source_ sangat penting untuk kontrol otonom dan navigasi sehingga perangkat keras dan lunak dapat terintegrasi untuk mengatur dinamika penerbangan UAV.
+
+ * **_Payload_** merupakan perlengkapan UAV--kamera, sensor, dan instrumen lainnya--untuk tugas-tugas spesifik. _Payload_ akan bervariasi tergantung aplikasi UAV: dari fotografi udara hingga memonitor lingkungan. UAV modern mengintegrasikan sensor-sensor yang bermacam-macam seperti kamera, LiDAR (_light detection and ranging_ atau alat yang digunakan untuk menghitung jarak/rentang ke muka bumi menggunakan pacaran cahaya [[National Ocean Service, 2024](https://oceanservice.noaa.gov/facts/lidar.html)]), dan sensor inframerah untuk menghimpun data dan menjalankan misi-misi tertentu.
+
+ * **Sistem Komunikasi** memungkinkan transmisi dan resepsi data antara UAV dan GCS (_Ground Control System_). Sistem komunikasi terbentuk atas jaringan radio, komunikasi satelit, dan jaringan seluler. Penting untuk memastikan kemananan berkomunikasi ketika operasi UAV dijalankan.
+
+ * **Sumber Daya (_Power Source_)** yang digunakan UAV biasanya berasal dari baterai, tetapi dapat juga menggunakan sumber daya alternatif seperti sel bahan bakar (_fuel cell_) atau panel surya tergantung desain dan syarat menjalankan misi UAV. Pengembangan baterai dapat meningkatkan waktu penerbangan dan jangkauan (jarak) operasional UAV.
+
+ * **Sistem Navigasi** mencakup GPS, IMU (_inertial measurement units_ 'unit pengukuran inersia/kelembaman'), dan beberapa hal terkait navigasi lainnya yang memungkinkan UAV menentukan posisi dan orientasi di langit lepas. Dengan sensor _consumer-grade_ 'yang dikhususkan untuk konsumer' yang ringan, UAV dapat mencapai data geografis yang akurat; penting untuk aplikasi seperti pemetaan dan survei.
+
+Hubungan antarkomponen menggunakan diagram blok adalah sebagai berikut.
+![Hubungan Antarkomponen UAV](../lampiran/diagram-blok-antarkomponen-uav.jpg)
+
+Dalam diagram tersebut, kerangka pesawat bertugas menopang komponen-komponen lain. Sementara itu, sistem propulsi menerbangkan UAV dan mengerjakan seluruh tugas fisik (lepas landas, terbang, mendarat) yang diperintahkan oleh sistem kontrol. Sistem kontrol mendapat perintah melalui sistem komunikasi yang memungkinkan pengguna/pilot "berkomunikasi" dengan UAV. Selain sistem komunikasi, sistem kontrol juga mendapat data-data dari sistem navigasi yang dapat dibaca dan diproses sesuai kebutuhan. _Payload_ yang digunakan untuk tugas khusus mendapat akan mendapat tugas dari sistem kontrol untuk dijalankan agar tujuan penerbangan tercapai. Terakhir, sumber daya berfungsi untuk memberi daya kepada semua komponen (kecuali kerangka pesawat karena fungsinya hanya menopang) agar dapat menjalankan tugasnya dengan baik.
+
+d. Publikasi ilmiah: [Unmanned Aerial Vehicles (UAV) in Precision Agriculture: Applications and Challenges](https://doi.org/10.3390/en15010217)
+
+  i. Perkenalan  
+    UAV telah digunakan oleh banyak negara maju untuk agrikultur presisi karena dapat membantu membuat panen berkualitas baik, mengurangi infeksi, serta  menyebarkan pupuk dan pestisida. UAV berketinggian rendah memiliki banyak keuntungan seperti mobilitas baik, konstruksi yang mudah, serta resolusi gambar yang tinggi. Di masa depan, agrikultur presisi akan bergantung pada sensor, robot, IoT, pemelajaran mesin, dan sistem pendukung yang _decision-based_.
+
+  ii. Agrikultur Presisi  
+    Agrikultur presisi membantu petani membuat keputusan dengan data. RS (_Remote Sensing_) memiliki peran penting untuk menilai hasil panen dan kondisi tanah. UAV adalah jenis RS yang paling fleksibel dan menyelesaikan masalah dibanding jenis lainnya. Selain itu, UAV mudah diakses, akurat, murah, dan dapat mengoperasikan gambar _real-time_.
+
+  iii. Jenis UAV
+   * _fixed-wing_: Biasanya dilengkapi kamera resolusi tinggi untuk pemetaan dan survei dari ketinggian. Arsitektur dan pemeliharaan cenderung mudah.
+   * _single rotor_:  Terdiri atas helikopter dan sistem yang mengaturnya dari tanah. Memiliki banyak kontrol variabel yang dapat dihitung menggunakan filter Kalman dan PID (_Proportional-Integral-Derivative_)
+   * _hybrid VTOL_: Memiliki manfaat _fixed-wing_ (ketahanan terbang) dan multirotor (pendaratan). Pemeliharaan kompleks.
+   * _multi rotor_  
+    1. _tricopter_: Tiga rotor. Satu rotor berputar searah jarum jam, dua lainnya berlawanan sehingga trikopter dapat maju dan menyamping.  
+    2. _quadcopter_: Empat rotor. Desain superior; dua rotor berputar searah jarum jam, dua lainnya berlawanan. Lebih stabil.  
+    3. _hex copter_: Enam rotor. Biasanya digunakan untuk menyebarkan pestisida dengan kapasitas fluida 5 liter. Peralatan mendarat berada di bawah unit penyemprotan sehingga aman untuk lepas landas dan mendarat. Memiliki 4 penyemprot.  
+    4. _octocopter_: Delapan rotor. Fungsi mirip dengan _hex copter_. Memiliki 6 penyemprot. Kelajuan rotor dan posisi penyemprot memengaruhi pergerakan semburan. 
+  
+  iv. Peran UAV dalam Agrikultur Presisi  
+    Untuk memonitor tanaman yang terinfeksi, menyemprotkan pestisida, dan memberi pupuk dengan kecepatan baik dan sistem akurat. Bagian-bagian penyemprot UAV:  
+     1. Bagian ujung penyemprot  
+     2. Pengontrol penyemprot  
+     3. Kotak pestisida  
+     4. Sensor pengukur aliran  
+     5. Pompa diafragma kecil  
+     6. Sistem interpretasi peta 
+
+  Penyemprot berbasis UAV lebih efisien dibanding sistem tradisional karena mengurangi bahaya, waktu, dan biaya. Pengembangan UAV terbaru meningkatkan pemroses gambar yang cepat; meningkatkan efisiensi untuk deteksi hama. _Remote sensing_ juga dapat digunakan untuk melihat persebaran tanaman dan lahan kosong di area tertentu. Selain itu, terdapat kombinasi antara _remote sensing_ dan _machine learning_ untuk pemeriksaan lanjutan dalam lahan yang lebih luas.
+
+  Terdapat sistem model hibrida yang mengombinasikan sistem klasifikasi terlatih dan model deteksi objek (RetinaNet) yang berhasil mengklasifikasikan tanaman sehat atau terinfeksi dengan akurasi 99,4%. Terdapat pula pendekatan yang mengintegrasikan parameter lingkungan dan pertumbuhan tanaman dengan efek klasifikasi performa gambar yang menghilangkan tanaman terinfeksi dengan gambar dari satelit Landsat-8. Model ini memiliki akurasi 82,6%. Lebih jauh lagi, teknologi RS dapat digunakan untuk tanaman yang stres dan defisiensi nutrisi. Dengan demikian, teknologi RS memiliki banyak aplikasi dalam bidang agrikultur dengan akurasi presisi yang cukup tinggi.
+  
+  v. Manfaat Ekonomis Teknologi UAV
+   * Menambah produktivitas petani secara global
+   * Mengurangi tanaman yang rusak dan meningkatkan hasil panen
+   * Meningkatkan ekspor dan mengurangi impor di negara berkembang sehingga tercipta keseimbangan
+   * Mengurangi kemiskinan dan meningkatkan kualitas hidup
 
 #### 6. Algoritma
 a. 
