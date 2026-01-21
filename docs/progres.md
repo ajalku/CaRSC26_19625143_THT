@@ -18,3 +18,6 @@
 
 ### 21 Januari 2026
 1. Aktivitas: Menyelesaikan bagian A nomor 4, 5c, 5d, 6a, 6c; melengkapi referensi
+
+### 22 Januari 2026
+1. Aktivitas: Mengerjakan bagian B nomor 1i
