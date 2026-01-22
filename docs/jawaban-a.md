@@ -39,7 +39,8 @@ c. Tangkapan layar learn git branching
 d. Tangkapan layar bukti menyelesaikan _exercise_ Git SSH Security
  ![tangkapan layar bukti menyelesaikan exercise Git SSH Security](../lampiran/tangkapan-layar-exercise-git-ssh.png)
 
-e. **SOON**
+e. Tangkapan layar _history branch_:
+![tangkapan layar history branch](../lampiran/tangkapan-layar-history-branch.png)
 
 #### 3. Pengenalan Ground Control System
 a. Tangkapan layar halaman utama Mission Planner
