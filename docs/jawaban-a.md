@@ -53,8 +53,14 @@ b. Merujuk pada dokumentasi [Ardupilot (2024)](https://ardupilot.org/planner/doc
  * **Simulation**: Simulation menyediakan simulasi SITL (Software in the Loop) yang memperbolehkan pengguna menjalankan UAV tanpa perangkat keras. Dalam _section_ ini, pengguna dapat melihat bagaimana UAV akan diterbangkan sebelum penerbangan dilakukan sehingga meminimalisasi kerusakan riil fisik UAV.
 
  c. Misi pemetaan sederhana persegi panjang 80x100  
+  [misi-pemetaan-sederhana-80x100-revisi.waypoints](../lampiran/misi-pemetaan-sederhana-80x100-revisi.waypoints)
+  ![Tangkapan layar misi sederhana](../lampiran/tangkapan-layar-misi-pemetaan-sederhana-revisi.png)
+
+
+  jawaban di bawah merupakan jawaban awal, hasil revisi adalah jawaban atas.
   [misi-pemetaan-sederhana-80x100.waypoints](../lampiran/misi-pemetaan-sederhana-80x100.waypoints)
   ![Tangkapan layar misi sederhana (untuk error prevention)](../lampiran/tangkapan-layar-misi-pemetaan-sederhana.png)
+
 
 #### 4. Development Environment
 Tangkapan Layar _Dualboot_ Ubuntu

@@ -20,4 +20,4 @@
 1. Aktivitas: Menyelesaikan bagian A nomor 4, 5c, 5d, 6a, 6c; melengkapi referensi
 
 ### 22 Januari 2026
-1. Aktivitas: Mengerjakan bagian B Dasar Pemrograman nomor 1i, 2, dan bagian A nomor 2e
+1. Aktivitas: Mengerjakan bagian B Dasar Pemrograman nomor 1i, 2, dan bagian A nomor 2e; merevisi bagian A nomor 3c
